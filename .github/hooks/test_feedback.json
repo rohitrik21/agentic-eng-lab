@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "hooks": {
+    "agentStop": [
+      {
+        "type": "command",
+        "command": "uv run --no-sync --project . python .github/hooks/run_changed_tests.py",
+        "timeoutSec": 110
+      }
+    ]
+  }
+}
