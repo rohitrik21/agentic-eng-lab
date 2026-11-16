@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "type": "command",
+        "command": "uv run --no-sync --project . python .github/hooks/audit_tool_use.py before",
+        "timeoutSec": 10
+      }
+    ],
+    "postToolUse": [
+      {
+        "type": "command",
+        "command": "uv run --no-sync --project . python .github/hooks/audit_tool_use.py after",
+        "timeoutSec": 10
+      }
+    ]
+  }
+}
