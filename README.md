@@ -26,8 +26,8 @@ The API is available at `http://127.0.0.1:8000`. Interactive API documentation i
 
 ## Endpoints
 
-- `GET /healthz` — Returns `{"status": "ok"}`.
-- `GET /tasks` — Lists tasks. Optionally pass `completed=true` or `completed=false` to filter by completion status.
-- `POST /tasks` — Creates a task. Provide a JSON body with a required `title` (1–120 characters) and optional `completed` boolean (defaults to `false`). Returns the task, including its assigned integer `id`, with status `201 Created`.
+- `GET /healthz` — Returns `200 OK` with `{"status": "ok"}`.
+- `GET /tasks` — Returns `200 OK` with a JSON array of tasks. Each task has an integer `id`, string `title`, and boolean `completed` field. Optionally pass `completed=true` or `completed=false` to filter by completion status.
+- `POST /tasks` — Accepts a JSON object with a required string `title` (1–120 characters) and an optional boolean `completed` field (defaults to `false`). The title must contain at least 1 and at most 120 characters. On success, returns `201 Created` with the created task: an integer `id`, string `title`, and boolean `completed`.
 
 Tasks are stored in memory and are lost when the service restarts.
